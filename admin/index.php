@@ -365,9 +365,7 @@
             <li class="nav-item">
                 <a class="nav-link <?= ($_GET['page'] == 'kas') ? 'active' : ''; ?>" href="index.php?page=kas">Kas</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link <?= ($_GET['page'] == 'riwayat') ? 'active' : ''; ?>" href="index.php?page=riwayat">Riwayat Pembayaran</a>
-            </li>
+            
         </ul>
     </div>
 </li>
