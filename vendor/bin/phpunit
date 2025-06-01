@@ -1,0 +1,17 @@
+<?php
+// tests/KasServiceTest.php
+use PHPUnit\Framework\TestCase;
+
+class KasServiceTest extends TestCase {
+    private $databaseService;
+
+    protected function setUp(): void {
+        // Inisialisasi koneksi database (misalnya)
+        $this->databaseService = new DatabaseService('localhost', 'root', '', 'sikamas');
+    }
+
+    public function testDatabaseQuery() {
+        $result = $this->databaseService->query('SELECT * FROM kas');
+        $this->assertNotNull($result);  // Pastikan hasil query tidak null
+    }
+}
