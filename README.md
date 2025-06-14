@@ -1,5 +1,5 @@
 # sikamas
-web php untuk menampilkan keuangan masjid
+web php untuk menampilkan keuangan kas warga
 
 # note
 halaman yang diakses umum menggunakan template arsha https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/, masih memerlukan banyak perbaikan
