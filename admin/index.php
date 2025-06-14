@@ -216,12 +216,34 @@
                 echo "<script>window.location.href = 'index.php?page=kas';</script>";
                 exit;
             }
-            switch ($page) {
-                case 'riwayat':
-    include "riwayat.php";
-    break;
+
         }
+        if (isset($_POST['submitRiwayat'])) {
+    $nama = $_POST['nama_warga'];
+    $bulan = $_POST['bulan'];
+    $nominal = $_POST['nominal'];
+    $keterangan = $_POST['keterangan'];
+
+    // Cek apakah data warga sudah ada
+    $cek = $conn->query("SELECT * FROM riwayat_pembayaran WHERE nama_warga = '$nama'");
+    
+    if ($cek->num_rows > 0) {
+        // Jika sudah ada, update kolom bulan yang dipilih
+        $conn->query("UPDATE riwayat_pembayaran SET $bulan = $bulan + $nominal, keterangan = '$keterangan' WHERE nama_warga = '$nama'");
+        $_SESSION['pesan'] = 'Data berhasil diupdate!';
+    } else {
+        // Jika belum ada, insert data baru
+        $sql = "INSERT INTO riwayat_pembayaran (nama_warga, $bulan, keterangan) VALUES ('$nama', $nominal, '$keterangan')";
+        $conn->query($sql);
+        $_SESSION['pesan'] = 'Data berhasil ditambahkan!';
     }
+
+    echo "<script>window.location.href='index.php';</script>";
+}
+
+        
+
+        
 
         ?>
         <!doctype html>
@@ -360,15 +382,19 @@
         <span data-feather="bar-chart-2"></span>
         Keuangan
     </a>
-    <div id="submenuKeuangan" class="collapse <?= (in_array($_GET['page'] ?? '', ['kas', 'riwayat'])) ? 'show' : ''; ?>">
-        <ul class="nav flex-column ml-3">
-            <li class="nav-item">
-                <a class="nav-link <?= ($_GET['page'] == 'kas') ? 'active' : ''; ?>" href="index.php?page=kas">Kas</a>
-            </li>
-            
-        </ul>
-    </div>
-</li>
+    <div id="submenuKeuangan" class="collapse <?= (in_array($_GET['page'] ?? '', ['kas', 'riwayat_pembayaran'])) ? 'show' : ''; ?>">
+    <ul class="nav flex-column ml-3">
+        <li class="nav-item">
+            <a class="nav-link <?= ($_GET['page'] == 'kas') ? 'active' : ''; ?>" href="index.php?page=kas">Kas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?= ($_GET['page'] == 'riwayat_pembayaran') ? 'active' : ''; ?>" href="index.php?page=riwayat_pembayaran">Riwayat Pembayaran</a>
+        </li>
+    </ul>
+</div>
+
+    
+
 
 
 
@@ -427,6 +453,9 @@
                                     case 'kas':
                                         include "kas.php";
                                         break;
+                                    case 'riwayat_pembayaran':
+                                        include "riwayat.php"; // Memanggil riwayat.php
+                                        break;   
                                     case 'user':
                                         include "user.php";
                                         break;

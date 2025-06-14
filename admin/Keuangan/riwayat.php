@@ -6,7 +6,7 @@ $riwayatKas = $conn->query("SELECT kas.*, kegiatan.nama AS nama_kegiatan
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Riwayat Pembayaran 🧾</h1>
+    <h1 class="h2">Riwayat Pembayaran d🧾</h1>
 </div>
 
 <table class="table table-hover table-striped dtableExportResponsive">

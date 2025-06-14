@@ -36,6 +36,7 @@ $_SESSION['pesan'] = '';
                 <option value="" disabled>Pilih Role</option>
                 <option value="1">Super User</option>
                 <option value="2">Admin</option>
+                 
             </select>
         </div>
         <div class="col-auto mb-2">
@@ -47,7 +48,7 @@ $_SESSION['pesan'] = '';
             </div>
         </div>
         <div class="col-auto mb-2">
-            <button type="submit" class="btn btn-primary" name="submitAddUser" disabled>Add User</button>
+            <button type="submit" class="btn btn-primary" name="submitAddUser" enabled>Add User</button>
         </div>
     </form>
 </div>
@@ -103,6 +104,7 @@ $_SESSION['pesan'] = '';
                             <option value="" disabled>Pilih Role</option>
                             <option value="1">Super User</option>
                             <option value="2">Admin</option>
+                             
                         </select>
                     </div>
                     <div class="form-group mb-2">

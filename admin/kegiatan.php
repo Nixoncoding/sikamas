@@ -27,7 +27,7 @@ $_SESSION['pesan'] = '';
             <input type="text" name="kegiatan" id="addNamaKegiatan" class="form-control" autocomplete="off" placeholder="Nama Kegiatan" required>
         </div>
         <div class="col-auto mb-2">
-            <button type="submit" class="btn btn-primary" name="submitAddKegiatan" disabled>Add Kegiatan</button>
+            <button type="submit" class="btn btn-primary" name="submitAddKegiatan" enabled>Add Kegiatan</button>
         </div>
     </form>
 </div>

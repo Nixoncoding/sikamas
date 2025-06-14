@@ -235,6 +235,7 @@ if (isset($_POST['submit'])) {
         </div>
         <button type="submit" name="submit" class="btn btn-primary btn-block">Login</button>
     </form>
+    
 
     <div class="wave"></div>
 
