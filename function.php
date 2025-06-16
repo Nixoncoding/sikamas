@@ -7,7 +7,7 @@ error_reporting(0);
 date_default_timezone_set('Asia/Jakarta');
 
 // koneksi db
-$conn = mysqli_connect("localhost", "root", "", "sikamas") or die("gagal konek db:(");
+$conn = mysqli_connect("localhost", "root", "", "simkarta") or die("gagal konek db:(");
 
 // base url
 function base_url($link = null)
